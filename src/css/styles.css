@@ -1,3 +1,4 @@
+
 * {
   box-sizing: border-box;
 }
@@ -7,9 +8,11 @@ body {
     Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  background-color: #fafafa;
+  background-color: rgb(138, 138, 243);
   color: #212121;
   line-height: 1.5;
+  padding: 20px;
+
 }
 
 #search-box {
@@ -17,4 +20,27 @@ body {
   padding: 8px;
   max-width: 320px;
   margin-bottom: 16px;
+  border-radius: 5px;
+  ;
+}
+
+li {
+  list-style: none;
+  display: flex;
+  margin-bottom: 20px;
+  animation: animation 1000ms;
+
+}
+
+
+p {
+  display: flex;
+  margin-left: 10px;
+  font-weight: bold;
+  text-transform: uppercase;
+}
+
+
+#search-box:focus {
+  box-shadow: 10px 10px 8px 2px rgba(0, 0, 0, 0.3)
 }

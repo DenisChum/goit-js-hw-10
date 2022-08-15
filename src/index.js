@@ -13,9 +13,12 @@ findInput.addEventListener('input', debounce(inputHandler, DEBOUNCE_DELAY));
 
 function inputHandler(event) {
     const input = event.target.value.trim();
+     if (input === '') {
+  return (findList.innerHTML = ''), (findInfo.innerHTML = '');
+ }
     let promise = fetchCountries(input);
     promise.then((countries) => {
-        clearDiv()
+        resetBox()
         if(countries.length === 1) {
             let html = createCountryInfo(countries) 
             findInfo.innerHTML = html
@@ -26,7 +29,7 @@ function inputHandler(event) {
             Notify.info('Too many matches found. Please enter a more specific name.')
         }
     }, (error) => {
-        clearDiv()
+        resetBox()
         
         Notify.failure('Oops, there is no country with that name')
         
@@ -34,9 +37,9 @@ function inputHandler(event) {
     return input;
 }
 
-function clearDiv() {
-    findInfo.innerHTML = " ";
-    findList.innerHTML = " ";
+function resetBox() {
+    findInfo.innerHTML = "";
+    findList.innerHTML = "";
 }
 
 const createCountryInfo = data => {
